@@ -573,6 +573,19 @@ class wmMegaMenu {
     }
 }
 window.wmMegaMenu = wmMegaMenu;
-wm$(wmMegaMenu.pluginTitle).then(({ data: e }) => {
-    new wmMegaMenu(e);
-});
+
+// Wait for toolkit to load before initializing
+(function initWhenReady() {
+    if (typeof wm$ !== 'undefined') {
+        console.log('Toolkit loaded, initializing Mega Menu...');
+        wm$(wmMegaMenu.pluginTitle).then(({ data: e }) => {
+            new wmMegaMenu(e);
+            console.log('Mega Menu initialized successfully');
+        }).catch(function(err) {
+            console.error('Mega Menu initialization error:', err);
+        });
+    } else {
+        console.log('Waiting for toolkit...');
+        setTimeout(initWhenReady, 100);
+    }
+})();
