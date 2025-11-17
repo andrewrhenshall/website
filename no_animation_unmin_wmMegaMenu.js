@@ -742,17 +742,8 @@ class wmMegaMenu {
         }, this.settings.openAnimationDelay);
     }
     addScrollEventListener() {
-        // Scroll listener disabled - menu stays open when scrolling
-        return;
-        let e = !1;
-        window.addEventListener("scroll", () => {
-            this.isMenuOpen &&
-                (e ||
-                    (window.requestAnimationFrame(() => {
-                        this.settings.closeOnScroll && this.closeMenu(), (e = !1);
-                    }),
-                    (e = !0)));
-        });
+    // Scroll listener completely removed - menu stays open when scrolling
+        console.log("Scroll listener disabled - menu will stay open");
     }
     addBurgerClickEventListener() {
         const e = this.header.querySelectorAll(".header-burger-btn"),
