@@ -18,7 +18,7 @@ class wmMegaMenu {
             closeMenuDelay: 150,
             activeAnimation: "none",
             activeAnimationDelay: 0,
-            closeOnScroll: !0,
+            closeOnScroll: !1,
             allowTriggerClickthrough: !0,
             addActiveTriggerClass: !1,
             activeDesktopTriggerClass: "header-nav-item--active",
