@@ -742,15 +742,16 @@ class wmMegaMenu {
         }, this.settings.openAnimationDelay);
     }
     addScrollEventListener() {
-        let e = !1;
-        window.addEventListener("scroll", () => {
-            this.isMenuOpen &&
-                (e ||
-                    (window.requestAnimationFrame(() => {
-                        this.settings.closeOnScroll && this.closeMenu(), (e = !1);
-                    }),
-                    (e = !0)));
-        });
+        // Scroll listener disabled - menu stays open when scrolling
+        // let e = !1;
+        // window.addEventListener("scroll", () => {
+        //     this.isMenuOpen &&
+        //         (e ||
+        //             (window.requestAnimationFrame(() => {
+        //                 this.settings.closeOnScroll && this.closeMenu(), (e = !1);
+        //             }),
+        //             (e = !0)));
+        // });
     }
     addBurgerClickEventListener() {
         const e = this.header.querySelectorAll(".header-burger-btn"),
